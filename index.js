@@ -24,7 +24,7 @@ $("#add-hairstyle").on("click", function (event) {
     populateBtn()
 
     var type = $(this).attr("data-type");
-    var queryURL = "http://api.giphy.com/v1/gifs/search?q=" + type + "&api-key=ha7q1zHp1SJhZjsopeU74JTrhL3IPNlws8&limit=10";
+    var queryURL = var xhr = $.get("http://api.giphy.com/v1/gifs/search?q=HairStyles&apikey=7q1zHp1SJhZjsopeU74JTrhL3IPNlws8&limit=20");
     $.ajax({
         url: queryURL,
         method: "GET"
@@ -35,10 +35,10 @@ $("#add-hairstyle").on("click", function (event) {
 
             hairstyles.forEach(element => {
                 var button = $("<button>")
-                /* button.attr("class", "hairstyle-btn")
-                 button.text(element)
-                 $("#hairstyles-btn").append(button)*/
-                var rating = hairstyles["afro"].rating;
+                button.attr("class", "hairstyle-btn")
+                button.text(element)
+                $("#hairstyles-btn").append(button)
+                /*var rating = hairstyles["afro"].rating;
                 var p = $("<p>").text("Rating: " + rating);
 
 
@@ -51,20 +51,20 @@ $("#add-hairstyle").on("click", function (event) {
                 hairStyleImage.attr("data-animate", animated);
                 hairStyleImage.attr("data-state", "still");
                 hairStyleImage.addClass("hairStyle-image");
-
+           
                 hairStyleDiv.append(p);
                 hairStyleDiv.append(hairStyle - image)
                 $("#hairstyles").append("hairstyle-btn")
             });
-
+           
             hairstyles.forEach(element => {
                 var button = $("<button>")
                 button.attr("class", "hairstyle-btn")
                 button.text(element)
                 $("hairstyles-btn").append(button)
             }
-
+           
             );
-        });
-    populateBtn()
-});
+           });
+                populateBtn()
+            });
