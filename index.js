@@ -15,7 +15,7 @@ function populateBtn() {
     });
 }
 
-//function to play or a srtill frame GIF Images
+//function to play or a still frame GIF Images
 
 $("#add-hairstyle").on("click", function (event) {
     event.preventDefault()
@@ -24,47 +24,60 @@ $("#add-hairstyle").on("click", function (event) {
     populateBtn()
 
     var type = $(this).attr("data-type");
-    var queryURL = var xhr = $.get("http://api.giphy.com/v1/gifs/search?q=HairStyles&apikey=7q1zHp1SJhZjsopeU74JTrhL3IPNlws8&limit=20");
+    var queryURL = "http://api.giphy.com/v1/gifs/search?q=HairStyles&apikey=7q1zHp1SJhZjsopeU74JTrhL3IPNlws8&limit=20";
     $.ajax({
         url: queryURL,
         method: "GET"
-    })
-        .then(function (response) {
+    }).then(function (response) {
 
-            var results = response.data;
+        var results = response.data;
+        console.log(results)
 
-            hairstyles.forEach(element => {
-                var button = $("<button>")
-                button.attr("class", "hairstyle-btn")
-                button.text(element)
-                $("#hairstyles-btn").append(button)
-                /*var rating = hairstyles["afro"].rating;
-                var p = $("<p>").text("Rating: " + rating);
+        //make a div
+
+        //put an image tag  in it
+        const imgTag = $("<img>");
+        imgTag.attr("src", "https://media1.giphy.com/media/CC7nfwnPWIoBa/giphy_s.gif?cid=e3b0c4426073c8ddccbdc72561bcca4da824bbd11cde01b2&rid=giphy_s.gif");
 
 
-                var animated = results["afro"].images.fixed_height.url;
-                var still = results["afro"].images.fixed_height_still.url
 
-                var hairStyleImage = $("<img>");
-                hairStyleImage.attr("src, still")
-                hairStyleImage.attr("data-still", still);
-                hairStyleImage.attr("data-animate", animated);
-                hairStyleImage.attr("data-state", "still");
-                hairStyleImage.addClass("hairStyle-image");
-           
-                hairStyleDiv.append(p);
-                hairStyleDiv.append(hairStyle - image)
-                $("#hairstyles").append("hairstyle-btn")
-            });
-           
-            hairstyles.forEach(element => {
-                var button = $("<button>")
-                button.attr("class", "hairstyle-btn")
-                button.text(element)
-                $("hairstyles-btn").append(button)
-            }
-           
-            );
-           });
-                populateBtn()
-            });
+
+        $("#hairstyles").append(imgTag)
+
+        //put a p tag with the rating in the div
+
+        //append the div tag to page
+
+        $("<img>").imgTag("data-type");
+
+
+        // var animated = results["afro"].images.fixed_height.url;
+        // var still = results["afro"].images.fixed_height_still.url
+
+        /*var hairStyleImage = $("<img>");
+        hairStyleImage.attr("src, still")
+        hairStyleImage.attr("data-still", still);
+        hairStyleImage.attr("data-animate", animated);
+        hairStyleImage.attr("data-state", "still");
+        hairStyleImage.addClass("hairStyle-image");
+    
+        hairStyleDiv.append(p);
+        hairStyleDiv.append(hairStyle - image)
+        $("#hairstyles").append("hairstyle-btn")
+    });
+    
+    hairstyles.forEach(element => {
+        var button = $("<button>")
+        button.attr("class", "hairstyle-btn")
+        button.text(element)
+        $("hairstyles-btn").append(button)
+    }
+    
+    );
+    });*/
+
+    });
+
+});
+
+populateBtn()
